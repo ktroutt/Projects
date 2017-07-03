@@ -1,5 +1,12 @@
 import random
+import sys
 
+print (sys.argv)
+
+min_char = 4
+if len(sys.argv) > 1:
+	min_char = int(sys.argv[1])
+	
 def get_selected():
 	with open ("words.txt", "r") as f:
 		lines = f.readlines()
@@ -9,10 +16,10 @@ def get_selected():
 	# print (lines[:10])
 	words =[]
 	"""for index in range(len(lines)):
-		if len(lines[index]) >=4:
+		if len(lines[index]) >=4:	
 			words.append(lines[index]) """
 	for w in lines:
-		if len(w) >=4:
+		if len(w) >=min_char:
 			words.append(w)
 
 	selected = random.choice(words)
